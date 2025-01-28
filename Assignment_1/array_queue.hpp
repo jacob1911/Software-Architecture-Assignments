@@ -12,7 +12,7 @@ private:
 public:
     array_queue(int);
     array_queue();
-    ~array_queue();
+    ~array_queue() {}
     void enqueue(int value) override;
     int dequeue() override;
     bool empty() override;

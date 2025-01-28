@@ -1,5 +1,6 @@
 #include "array_queue.hpp"
 #include<assert.h>
+#include<stdio.h>
 #define MAXSIZE 100
 
 array_queue::array_queue(){
@@ -30,7 +31,7 @@ void array_queue::enqueue(int value){
     }
     // Case 2: the queue is not full nor empty
     else if(!full()){
-       rear += 1;
+       rear++;
        if (rear >= max) rear = 0;
        queue[rear] = value;
     }
@@ -46,20 +47,19 @@ int array_queue::dequeue() {
         rear=-1;
     }
     else{
-        front -=1;
-    if (front < 0) front = max - 1;
+        front++;
+    if (front >= max) front = 0;
     }
-    
     return returnval;
 }
 bool array_queue::empty() {
     return front==-1;
 }
 bool array_queue::full() {
-    if (rear!=0){
-        return (rear-1==front);
+    if (front != 0){
+        return (front - 1 == rear);
     }
     else{
-        return (front==max-1);
+        return (rear==max-1);
     }
 }
