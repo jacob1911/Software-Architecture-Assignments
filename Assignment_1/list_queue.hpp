@@ -8,6 +8,11 @@ private:
     struct Node {
         int data;
         Node *next;
+        // Constructor for node
+        Node (int value, Node* next_n){
+            data = value;
+            next = next_n;
+        }
     };
     Node *front;
     Node *rear;
